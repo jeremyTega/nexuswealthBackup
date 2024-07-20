@@ -3,7 +3,7 @@ const compression = require ('compression')
 const helmet = require ('helmet')
 const morgan = require('morgan')
 const app = express()
-const PORT = 2371
+const PORT = 4410
 app.use(express.json())
 const cors = require('cors')
 const fileUploader = require('express-fileupload')
@@ -19,8 +19,28 @@ const twoFactorAuthRoutes = require('./routers/2faRouter');
 const axios = require('axios')
 const cron = require('node-cron')
 
-// Cron job to ping the website every 5 minutes and send an email
-cron.schedule('*/5 * * * *', async () => {
+// // Cron job to ping the website every 5 minutes and send an email
+// cron.schedule('*/5 * * * *', async () => {
+//     try {
+//         await axios.get('https://nexus-wealth.onrender.com');
+//         console.log('Pinged website to keep it awake');
+
+//         // // Prepare and send the wake-up email
+//         // const subject = "Wake up website";
+//         // const html = wakeUpMail();
+//         // const regEmailData = {
+//         //     email: process.env.WAKE_UP_EMAIL, // Use the environment variable
+//         //     subject,
+//         //     html
+//         // };
+//         // await sendEmail(regEmailData);
+//     } catch (error) {
+//         console.error('Error in cron job:', error.message);
+//     }
+// });
+
+// Cron job to ping the website every hour
+cron.schedule('0 * * * *', async () => {
     try {
         await axios.get('https://nexus-wealth.onrender.com');
         console.log('Pinged website to keep it awake');
