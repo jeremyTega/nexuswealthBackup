@@ -39,10 +39,10 @@ const cron = require('node-cron')
 //     }
 // });
 
-// Cron job to ping the website every hour
-cron.schedule('0 * * * *', async () => {
+// Cron job to ping the website twice every hour (at the start and at the 30-minute mark)
+cron.schedule('0,30 * * * *', async () => {
     try {
-        await axios.get('https://nexus-wealth.onrender.com');
+        await axios.get('https://nexuswealthbackup.onrender.com');
         console.log('Pinged website to keep it awake');
 
         // // Prepare and send the wake-up email
@@ -58,6 +58,7 @@ cron.schedule('0 * * * *', async () => {
         console.error('Error in cron job:', error.message);
     }
 });
+
 
 
 
