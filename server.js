@@ -39,6 +39,8 @@ const cron = require('node-cron')
 //     }
 // });
 
+
+
 // Cron job to ping the website twice every hour (at the start and at the 30-minute mark)
 cron.schedule('0,30 * * * *', async () => {
     try {
