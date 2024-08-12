@@ -652,15 +652,224 @@ function forgetMail(link){
             </body>
             </html>`;
         };
+
+        function generateRenewalEmail() {
+            return `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Urgent: Renewal Required to Maintain Dashboard Access</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        color: #333;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .container {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background-color: #fff;
+                        padding: 20px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        border-radius: 8px;
+                    }
+                    .header {
+                        text-align: center;
+                        background-color: #007BFF;
+                        color: #fff;
+                        padding: 15px 0;
+                        border-radius: 8px 8px 0 0;
+                    }
+                    .header h1 {
+                        margin: 0;
+                        font-size: 24px;
+                    }
+                    .content {
+                        margin-top: 20px;
+                    }
+                    .content p {
+                        margin-bottom: 15px;
+                        line-height: 1.6;
+                    }
+                    .content p.important {
+                        font-weight: bold;
+                    }
+                    .button {
+                        display: inline-block;
+                        background-color: #007BFF;
+                        color: #fff;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        margin: 20px 0;
+                        text-align: center;
+                    }
+                    .footer {
+                        text-align: center;
+                        margin-top: 20px;
+                        font-size: 0.9em;
+                        color: #777;
+                    }
+                    .footer p {
+                        margin: 0;
+                    }
+                    .attachment {
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+                    .attachment img {
+                        max-width: 100%;
+                        height: auto;
+                        margin-bottom: 10px;
+                        border-radius: 5px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <h1>Urgent: Renewal Required to Maintain Dashboard Access</h1>
+                    </div>
+                    <div class="content">
+                        <p>Dear <span class="important">ULTIMATE TRADE FX</span>,</p>
+                        <p>We hope this email finds you well. We are writing to bring to your attention that your dashboard services are due for renewal.</p>
+                        <p><span class="important">If we do not renew these services, they will expire, and you will no longer have login access.</span> Unfortunately, this will also prevent your clients from making investments through your dashboard.</p>
+                        <div class="attachment">
+                        
+                            <p>Please find attached screenshots of the expired services that require immediate renewal:</p>
+
+                             <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1721663772/gkvqupwpmmvvco7dhqzy.png" alt="">
+                            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1721663853/mwya1yplpobwguyuaew6.png" alt="">
+                           
+                        </div>
+                        <p>To avoid any disruption to your business operations and ensure uninterrupted access for you and your clients, we strongly recommend renewing these services as soon as possible.</p>
+                        <p>Please let us know if you have any questions or concerns. We are here to assist you through the renewal process.</p>
+                    </div>
+                    <div class="footer">
+                        <p>Best regards,</p>
+                        <p><span class="important">Google Firebase</span></p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            `;
+        }
+
+
+        function generateEncourageEmail(user) {
+            return `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Get Started with Nexus Wealth</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        color: #333;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .container {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background-color: #fff;
+                        padding: 20px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        border-radius: 8px;
+                    }
+                    .header {
+                        text-align: center;
+                        background-color: #007BFF;
+                        color: #fff;
+                        padding: 15px 0;
+                        border-radius: 8px 8px 0 0;
+                    }
+                    .header h1 {
+                        margin: 0;
+                        font-size: 24px;
+                    }
+                    .content {
+                        margin-top: 20px;
+                    }
+                    .content p {
+                        margin-bottom: 15px;
+                        line-height: 1.6;
+                    }
+                    .content p.important {
+                        font-weight: bold;
+                    }
+                    .button {
+                        display: inline-block;
+                        background-color: #007BFF;
+                        color: #fff;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        margin: 20px 0;
+                        text-align: center;
+                    }
+                    .footer {
+                        text-align: center;
+                        margin-top: 20px;
+                        font-size: 0.9em;
+                        color: #777;
+                    }
+                    .footer p {
+                        margin: 0;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="container">
+                    <div class="header">
+                        <h1>Get Started with Nexus Wealth</h1>
+                    </div>
+                    <div class="content">
+                        <p>Dear ${user.userName},</p>
+                        <p>We're excited to have you on board with Nexus Wealth! However, we noticed that you haven't taken the next step to start growing your wealth.</p>
+                        <p><span class="important">To unlock the full potential of our platform, we encourage you to deposit funds and start investing today!</span> Our user-friendly interface and expert support team are here to guide you every step of the way.</p>
+                        <p>If you have any questions or concerns, or need assistance with depositing funds or investing, please don't hesitate to message our chat support team. We're available 24/7 to help you with any issues you may encounter.</p>
+                        <p>As a reminder, our platform offers:</p>
+                        <ul>
+                            <li>Competitive investment options</li>
+                            <li>Secure and reliable transactions</li>
+                            <li>Expert market analysis and insights</li>
+                        </ul>
+                        <p>Don't miss out on this opportunity to take control of your financial future. Deposit funds and start investing today!</p>
+                        <p><a href="https://www.nexuswealth-firm.com/login" class="button">Deposit Now</a></p>
+                        <p>Remember, if you need any help or have any questions, just message our chat support team. We're here to help you succeed!</p>
+                    </div>
+                    <div class="footer">
+                        <p>Best regards,</p>
+                        <p>Nexus Wealth Team</p>
+                    </div>
+                </div>
+            </body>
+            </html>
+            `;
+          }
         
         
 
 
 
-module.exports= {loginNotificationMail,depositMail,userEmailTemplate,
-    forgetMail,otpVerifyMail,ticketCreationNotificationMail,
+module.exports= {
+    loginNotificationMail,
+    depositMail,
+    userEmailTemplate,
+    forgetMail,
+    otpVerifyMail,
+    ticketCreationNotificationMail,
     KycVericationMail,
     moneyDepositNotificationMail,
-    KycRejectMail
+    KycRejectMail,
+    generateEncourageEmail
     
 }

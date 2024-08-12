@@ -14,11 +14,11 @@ const sendEmail = async (options) => {
             rejectUnauthorized: false,
            },
     });
-
+    const fromAddress = `"${process.env.from_Name}" <${process.env.user}>`;
 
     try {
         const info = await transporter.sendMail({
-            from: process.env.user,
+            from: fromAddress,
             to: options.email,
             subject: options.subject,
             html: options.html

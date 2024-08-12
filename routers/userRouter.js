@@ -1,8 +1,10 @@
 const express = require ('express')
 const router = express.Router()
 const upload = require('../helpers/multer')
-const {signUpUser,verifyOtp,resendVerificationOtp,login,ViewProfile,assignMoneyToUser,assignProfitToUser, deleteUser,deactivateUser,updateUser,logout,getUserDepositWallet,getuserReferalWallet,getuserIntrestWallet,
-    getAllUsers,getUserTotalBalance} = require('../controllers/usercontroller')
+const {signUpUser,verifyOtp,resendVerificationOtp,login,ViewProfile,
+    assignMoneyToUser,assignProfitToUser, deleteUser,deactivateUser,updateUser,
+    logout,getUserDepositWallet,getuserReferalWallet,getuserIntrestWallet,
+    getAllUsers,getUserTotalBalance,encourageUserMailFunction} = require('../controllers/usercontroller')
 const {resetPassword,changePassword,forgotPassword} = require ('../controllers/passwordController')
 const {authenticateUser,Role} = require('../middlewares/authorisation')
 const {getTransactionHistory,getLatestTransaction} = require('../controllers/transation')
@@ -32,6 +34,7 @@ router.route("/forgotPassword").post(forgotPassword)
 router.route("/updateUser/:userId").put(authenticateUser,updateUser)
  router.route("/getTransactionHistory/:userId").get(getTransactionHistory)
  router.route("/getLatestTransaction/:userId").get(getLatestTransaction)
+ router.route("/encourageUserMailFunction").post(encourageUserMailFunction)
 
 
 
