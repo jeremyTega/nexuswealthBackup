@@ -60,7 +60,7 @@ function loginNotificationMail(user, timestamp, ipAddress, userAgent) {
     <body>
         <!-- Header with Logo -->
         <div class="header">
-            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="nexus-wealth">
+            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="nexus-wealth">
         </div>
     
         <!-- Content Section -->
@@ -153,7 +153,7 @@ const depositMail = (payment,user) => {
   </head>
   <body>
       <div class="header">
-          <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="nexus-wealth">
+          <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="nexus-wealth">
       </div>
       <div class="content">
           <p>A new deposit proof of payment has been uploaded. Please review.</p>
@@ -241,7 +241,7 @@ const KycVericationMail = (savedKycDoc) => {
     </head>
     <body>
         <div class="header">
-            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="PrimeTrade">
+            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="PrimeTrade">
         </div>
         <div class="content">
             <p>A new deposit proof of payment has been uploaded. Please review.</p>
@@ -318,7 +318,7 @@ function userEmailTemplate(depositRecord) {
     <body>
         <div class="container">
             <div class="header">
-                <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="PrimeTrade">
+                <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="PrimeTrade">
             </div>
             <div class="content">
                 <p><strong>Congratulations!</strong> You have successfully uploaded a proof of payment.</p>
@@ -399,7 +399,7 @@ function forgetMail(link){
     <body>
         
             <div class="header">
-                <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="CITADEL INV" class="image">
+                <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="NEXUS WEALTH" class="image">
                 <h1>Password Reset</h1>
             </div>
             <p>Please click on the link below to reset your password:</p>
@@ -498,7 +498,7 @@ function forgetMail(link){
             <body>
                 <!-- Header with Logo -->
                 <div class="header">
-                    <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="CITADEL INV">
+                    <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="NEXUS WEALTH">
                 </div>
             
                 <!-- Content Section -->
@@ -527,9 +527,6 @@ function forgetMail(link){
             </body>`;
         }
 
-
-
-
         function moneyDepositNotificationMail(user, amount) {
             return `
             <!DOCTYPE html>
@@ -554,6 +551,7 @@ function forgetMail(link){
                         background-color: black; /* Black header background */
                         padding: 20px 0;
                         border-radius: 10px; /* Rounded corners */
+                        text-align: center; /* Center the logo */
                     }
                     
                     .header img {
@@ -578,21 +576,96 @@ function forgetMail(link){
             <body>
                 <!-- Header with Logo -->
                 <div class="header">
-                    <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="CITADEL INV">
+                    <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="NEXUS WEALTH">
                 </div>
             
                 <!-- Content Section -->
                 <div class="content">
                     <h1>Money Deposit Notification</h1>
-                    <p>Hello ${user.email},</p>
-                    <p>We want to inform you that an amount of $${amount} has been deposited into your wallet.</p>
-                    <p>You can now use this balance for your transactions and purchases.</p>
-                    <p>Thank you for using our services!</p>
-                    <p>nexus-wealth exchange team</p>
+                    <p>Hello ${user.userName},</p>
+                    <p>We are excited to inform you that in celebration of our company’s anniversary, a special gift of $1,000 has been deposited into your wallet.</p>
+                    <p>Please note the following:</p>
+                    <ul>
+                        <li>The $1,000 bonus cannot be withdrawn.</li>
+                        <li>You can add more funds to this balance and use the total amount for investments and purchases within our platform.</li>
+                        <li>This bonus will expire in 25 days. If not used within this period, the $1,000 will be removed from your account.</li>
+                    </ul>
+                    <p>Make sure to take advantage of this limited-time offer and boost your investment portfolio today!</p>
+                    <p>Thank you for being a valued client. We look forward to serving you even better in the future.</p>
+                    <p>Best regards,</p>
+                    <p>The Nexus-Wealth Exchange Team</p>
                 </div>
             </body>
             </html>`;
-        };
+        }
+        
+
+        
+
+
+        // function moneyDepositNotificationMail(user, amount) {
+        //     return `
+        //     <!DOCTYPE html>
+        //     <html lang="en">
+        //     <head>
+        //         <meta charset="UTF-8">
+        //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        //         <title>Money Deposit Notification</title>
+        //         <style>
+        //             /* Global Styles */
+        //             body {
+        //                 font-family: Arial, sans-serif;
+        //                 margin: 0;
+        //                 padding: 0;
+        //                 text-align: center;
+        //                 background-color: #000000; /* Black background */
+        //                 color: #ffffff; /* White text */
+        //             }
+                    
+        //             /* Header Styles */
+        //             .header {
+        //                 background-color: black; /* Black header background */
+        //                 padding: 20px 0;
+        //                 border-radius: 10px; /* Rounded corners */
+        //             }
+                    
+        //             .header img {
+        //                 width: 150px; /* Adjust the width of the image as needed */
+        //             }
+                    
+        //             /* Content Styles */
+        //             .content {
+        //                 padding: 20px;
+        //             }
+                    
+        //             .wallet-details {
+        //                 margin-top: 20px;
+        //                 text-align: left;
+        //             }
+                    
+        //             .details-row {
+        //                 margin-bottom: 10px;
+        //             }
+        //         </style>
+        //     </head>
+        //     <body>
+        //         <!-- Header with Logo -->
+        //         <div class="header">
+        //             <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="NEXUS WEALTH">
+        //         </div>
+            
+        //         <!-- Content Section -->
+        //         <div class="content">
+        //             <h1>Money Deposit Notification</h1>
+        //             <p>Hello ${user.email},</p>
+        //             <p>We want to inform you that an amount of $${amount} has been deposited into your wallet.</p>
+        //             <p>You can now use this balance for your transactions and purchases.</p>
+        //             <p>Thank you for using our services!</p>
+        //             <p>nexus-wealth exchange team</p>
+        //         </div>
+        //     </body>
+        //     </html>`;
+        // };
         
         function KycRejectMail(user) {
             return `
@@ -637,7 +710,7 @@ function forgetMail(link){
             <body>
                 <!-- Header with Logo -->
                 <div class="header">
-                    <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1715274956/Nexus-waelth/ftotikqterbupgqbnufd.png" alt="CITADEL INV">
+                    <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="NEXUS WEALTH">
                 </div>
             
                 <!-- Content Section -->
