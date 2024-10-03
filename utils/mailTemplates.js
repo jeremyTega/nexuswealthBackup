@@ -164,16 +164,13 @@ const depositMail = (payment,user) => {
           <a href="${payment.url}" download="proof_of_payment.${getFileExtension(payment.url)}">Download Payment</a>
       </div>
       <div class="footer">
-          <p>Contact us at <a href="mailto:primetradeexchange@webmail.com">ultimatefx@webmail.com</a></p>
+          <p>Contact us at <a href="mailto:Nexus wealthexchange@webmail.com">ultimatefx@webmail.com</a></p>
       </div>
   </body>
   </html>
   `
     
 };
-
-
-
 
 
 const KycVericationMail = (savedKycDoc) => {
@@ -196,7 +193,7 @@ const KycVericationMail = (savedKycDoc) => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>New Deposit Proof of Payment Uploaded</title>
+       <title>USER ULPOAD KYC FORM</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -241,23 +238,113 @@ const KycVericationMail = (savedKycDoc) => {
     </head>
     <body>
         <div class="header">
-            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="PrimeTrade">
+            <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="Nexus wealth">
         </div>
         <div class="content">
-            <p>A new deposit proof of payment has been uploaded. Please review.</p>
+           <p>A new kyc form has been uploaded. Please review.</p>
             <p><span class="firstname">User Name:</span> ${savedKycDoc.fullName}</p>
             <p><span class="lastName">User ID:</span> ${savedKycDoc._id}</p>
+            <p><span class="lastName">SSN:</span> ${savedKycDoc.SSN}</p>
+            <p><span class="lastName">Occupation:</span> ${savedKycDoc.occupation}</p>
+           
     
             <!-- Insert HTML for files -->
             ${filesHtml}
         </div>
         <div class="footer">
-            <p>Contact us at <a href="mailto:primetradeexchange@webmail.com">primetradeexchange</a></p>
+            <p>Contact us at <a href="mailto:Nexus wealthexchange@webmail.com">Nexus wealthexchange</a></p>
         </div>
     </body>
     </html>
     `;
 };
+
+
+
+
+
+// const KycVericationMail = (savedKycDoc) => {
+//     const getFileExtension = (url) => {
+//         const ext = url.split('.').pop().toLowerCase();
+//         return ext === 'jpg' ? 'jpg' :
+//                ext === 'jpeg' ? 'jpeg' :
+//                'pdf';
+//     };
+
+//     // Construct HTML for both files
+//     const filesHtml = savedKycDoc.driversLicense.map((file, index) => `
+//         <p><a href="${file.url}" download="driversLicense_${index + 1}.${getFileExtension(file.url)}">Download Driver's License ${index + 1}</a></p>
+//         <img src="${file.url}" alt="Driver's License ${index + 1}" style="max-width: 100%; height: auto;">
+//     `).join('');
+
+//     return  `<!DOCTYPE html>
+//     <html lang="en">
+//     <head>
+//         <meta charset="UTF-8">
+//         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <title>New Deposit Proof of Payment Uploaded</title>
+//         <style>
+//             body {
+//                 font-family: Arial, sans-serif;
+//                 background-color: #ffffff; /* White background */
+//                 color: #000000; /* Black text */
+//                 margin: 0;
+//                 padding: 0;
+//             }
+//             .header {
+//                 background-color: #ffffff; /* White background for header */
+//                 padding: 20px;
+//                 text-align: center;
+//             }
+//             .header img {
+//                 max-width: 200px; /* Set the maximum width for the logo */
+//             }
+//             .content {
+//                 padding: 20px;
+//                 text-align: center;
+//             }
+//             .content p {
+//                 margin-bottom: 10px;
+//             }
+//             .content a {
+//                 display: inline-block;
+//                 padding: 10px 20px;
+//                 background-color: #007bff; /* Blue button color */
+//                 color: #ffffff; /* White text color */
+//                 text-decoration: none;
+//                 border-radius: 5px;
+//                 transition: background-color 0.3s ease;
+//             }
+//             .content a:hover {
+//                 background-color: #0056b3; /* Darker blue on hover */
+//             }
+//             .footer {
+//                 background-color: #f0f0f0; /* Light gray background for footer */
+//                 padding: 20px;
+//                 text-align: center;
+//             }
+//         </style>
+//     </head>
+//     <body>
+//         <div class="header">
+//             <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="Nexus wealth">
+//         </div>
+//         <div class="content">
+//             <p>A new deposit proof of payment has been uploaded. Please review.</p>
+//             <p><span class="firstname">User Name:</span> ${savedKycDoc.fullName}</p>
+//             <p><span class="lastName">User ID:</span> ${savedKycDoc._id}</p>
+    
+//             <!-- Insert HTML for files -->
+//             ${filesHtml}
+//         </div>
+//         <div class="footer">
+//             <p>Contact us at <a href="mailto:Nexus wealthexchange@webmail.com">Nexus wealthexchange</a></p>
+//         </div>
+//     </body>
+//     </html>
+//     `;
+// };
 
 
 
@@ -318,7 +405,7 @@ function userEmailTemplate(depositRecord) {
     <body>
         <div class="container">
             <div class="header">
-                <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="PrimeTrade">
+                <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="Nexus wealth">
             </div>
             <div class="content">
                 <p><strong>Congratulations!</strong> You have successfully uploaded a proof of payment.</p>
@@ -326,7 +413,7 @@ function userEmailTemplate(depositRecord) {
                 <p>Deposit ID Number: ${depositRecord.depositId}</p>
             </div>
             <div class="footer">
-                <p>Contact us at <a href="mailto:primetradeexchange@webmail.com">ultimatefx@webmail.com</a></p>
+                <p>Contact us at <a href="mailto:Nexus wealthexchange@webmail.com">ultimatefx@webmail.com</a></p>
             </div>
         </div>
     </body>
