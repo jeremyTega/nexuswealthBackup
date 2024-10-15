@@ -754,25 +754,25 @@ const withdrawMoney = async (req, res) => {
         }
 
 
-        // Deduct withdrawal amount from all wallets
-        const wallets = ['depositWallet', 'intrestWallet', 'referalWallet'];
+        // // Deduct withdrawal amount from all wallets
+        // const wallets = ['depositWallet', 'intrestWallet', 'referalWallet'];
 
-        for (let wallet of wallets) {
-            if (user[wallet] > 0) {
-                // Deduct from wallet if balance is not zero
-                user[wallet] -= usd;
-            }
-        }
+        // for (let wallet of wallets) {
+        //     if (user[wallet] > 0) {
+        //         // Deduct from wallet if balance is not zero
+        //         user[wallet] -= usd;
+        //     }
+        // }
 
-        // Deduct from account balance
-        user.accountBalance -= usd;
+        // // Deduct from account balance
+        // user.accountBalance -= usd;
 
-        // Save the updated user object
-        await user.save();
+        // // Save the updated user object
+        // await user.save();
 
    
-        // Save the updated user object
-        await user.save();
+        // // Save the updated user object
+        // await user.save();
 
         // Generate a random withdrawal number
         function generateRandomNumbers() {
@@ -804,7 +804,7 @@ const withdrawMoney = async (req, res) => {
         });
         await depositTransaction.save();
 
-        res.status(200).json({ message: 'Withdrawal successful', remainingBalance: user.accountBalance });
+        res.status(200).json({ message: 'Withdrawal in process', remainingBalance: user.accountBalance });
     } catch (error) {
         console.error('Error withdrawing money:', error);
         res.status(500).json({ message: 'Internal server error' });
