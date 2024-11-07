@@ -1016,6 +1016,67 @@ function forgetMail(link){
             `;
           }
         
+
+          // signalTemplate.js
+function signalMailTemplate() {
+    return `
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <style>
+              body {
+                  margin: 0;
+                  padding: 0;
+                  background-color: black;
+                  color: #ffffff;
+                  font-family: Arial, sans-serif;
+              }
+              .container {
+                  width: 100%;
+                  max-width: 600px;
+                  margin: 0 auto;
+                  padding: 20px;
+                  background-color: black;
+                  border-radius: 10px;
+              }
+              .header {
+                  text-align: center;
+                  margin-bottom: 20px;
+              }
+              .link {
+                  color: #3366cc;
+                  text-decoration: none;
+                  border-bottom: 1px solid #3366cc;
+                  transition: border-bottom 0.3s ease;
+              }
+              .link:hover {
+                  border-bottom: 2px solid #e71717;
+                  color:#e71717;
+              }
+              .footer {
+                  margin-top: 20px;
+                  text-align: center;
+              }
+              .image {
+                  max-width: 80%;
+                  display: block;
+                  margin: 0 auto 10px;
+              }
+          </style>
+      </head>
+      <body>
+          <div class="header">
+              <img src="https://res.cloudinary.com/dsml73vio/image/upload/v1724178675/Nexus-waelth/nexus_pf2oey.png" alt="NEXUS WEALTH" class="image">
+              <h1>Signal Notification</h1>
+          </div>
+          <p>Dear User,</p>
+          <p>A new signal is available. Please log in to Nexus Wealth to check and activate it.</p>
+          <div class="footer">
+              <p>If you have any questions, please contact our support team.</p>
+          </div>
+      </body>
+      </html>`;
+  }
         
 
 
@@ -1030,6 +1091,7 @@ module.exports= {
     KycVericationMail,
     moneyDepositNotificationMail,
     KycRejectMail,
-    generateEncourageEmail
+    generateEncourageEmail,
+    signalMailTemplate
     
 }

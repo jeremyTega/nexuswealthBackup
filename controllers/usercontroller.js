@@ -9,7 +9,7 @@ const transationModel = require('../models/investmentModel')
 const depositModel = require('../models/depositModel')
 const mongoose = require ('mongoose')
 const cloudinary = require('../helpers/cloudinary')
-const {moneyDepositNotificationMail,generateEncourageEmail} = require('../utils/mailTemplates')
+const {moneyDepositNotificationMail,generateEncourageEmail,signalMailTemplate} = require('../utils/mailTemplates')
 
 
 
@@ -830,21 +830,29 @@ const encourageUserMailFunction = async (req, res) => {
       res.status(500).json({ message: "Failed to update users", error });
     }
   };
-  const sendSignal = async (req,res)=>{
+ 
+const sendSignal = async (req, res) => {
     try {
-        const email = req.body
-        const existingUser = await userModel.findOne(email)
-        if(!existingUser){
-            return res.status(404).json({message:'user with email not found'})
+        const { email } = req.body;
+        const existingUser = await userModel.findOne({ email });
+        if (!existingUser) {
+            return res.status(404).json({ message: 'User with email not found' });
         }
-        existingUser.signal = true
-        await existingUser.save()
-        res.status(200).json({message:'signal sent to user successfully'})
-        
+
+        existingUser.signal = true;
+        await existingUser.save();
+
+        await sendEmail({
+            email: email,
+            subject: 'New Signal Available!',
+            html: signalMailTemplate(), 
+        });
+
+        res.status(200).json({ message: 'Signal sent to user successfully' });
     } catch (error) {
-        res.status(500).json({ message: "Failed to update users", error });
+        res.status(500).json({ message: 'Failed to send signal email', error });
     }
-  }
+};
 
  
 
