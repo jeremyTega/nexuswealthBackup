@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     deactivate:{type: Boolean, default:false},
     isLoggedIn:{type: Boolean, default:false},
     twoFactor:{type: Boolean, default:false},
+    signal:{type: Boolean, default:false},
     profilePicture: {
       public_id: { type: String},
        url:{ type: String, },

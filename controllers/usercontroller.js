@@ -789,6 +789,63 @@ const encourageUserMailFunction = async (req, res) => {
     }
   }
 
+  const updateUsersWithNewFields = async (req, res) => {
+    try {
+      const result = await userModel.updateMany(
+        {
+          $or: [
+            { lastWithdraw: { $exists: false } },
+            { pendingWithdraw: { $exists: false } },
+            { rejectedWithdraw: { $exists: false } },
+            { lastIntrest: { $exists: false } },
+            { runningIntrest: { $exists: false } },
+            { completedIntrest: { $exists: false } },
+            { lastDeposit: { $exists: false } },
+            { PendingDeposit: { $exists: false } },
+            { RejectedDeposite: { $exists: false } },
+            { signal: { $exists: false } } 
+          ]
+        },
+        {
+          $set: {
+            lastWithdraw: 0,
+            pendingWithdraw: 0,
+            rejectedWithdraw: 0,
+            lastIntrest: 0,
+            runningIntrest: 0,
+            completedIntrest: 0,
+            lastDeposit: 0,
+            PendingDeposit: 0,
+            RejectedDeposite: 0,
+            signal: false 
+          }
+        }
+      );
+  
+      res.status(200).json({
+        message: "Users updated with new fields successfully",
+        result
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update users", error });
+    }
+  };
+  const sendSignal = async (req,res)=>{
+    try {
+        const email = req.body
+        const existingUser = await userModel.findOne(email)
+        if(!existingUser){
+            return res.status(404).json({message:'user with email not found'})
+        }
+        existingUser.signal = true
+        await existingUser.save()
+        res.status(200).json({message:'signal sent to user successfully'})
+        
+    } catch (error) {
+        res.status(500).json({ message: "Failed to update users", error });
+    }
+  }
+
  
 
 module.exports={
@@ -808,7 +865,9 @@ module.exports={
     getuserIntrestWallet,
     getAllUsers,
     getUserTotalBalance,
-    encourageUserMailFunction
+    encourageUserMailFunction,
+    updateUsersWithNewFields,
+    sendSignal
 }
 
 
