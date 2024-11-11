@@ -831,19 +831,45 @@ const encourageUserMailFunction = async (req, res) => {
     }
   };
  
+// const sendSignal = async (req, res) => {
+//     try {
+//         const { email } = req.body;
+//         const existingUser = await userModel.findOne({ email });
+//         if (!existingUser) {
+//             return res.status(404).json({ message: 'User with email not found' });
+//         }
+
+//         existingUser.signal = true;
+//         await existingUser.save();
+
+//         await sendEmail({
+//             email: email,
+//             subject: 'New Signal Available!',
+//             html: signalMailTemplate(), 
+//         });
+
+//         res.status(200).json({ message: 'Signal sent to user successfully' });
+//     } catch (error) {
+//         res.status(500).json({ message: 'Failed to send signal email', error });
+//     }
+// };
+
 const sendSignal = async (req, res) => {
     try {
+        // Trim and convert email to lowercase
         const { email } = req.body;
-        const existingUser = await userModel.findOne({ email });
-        if (!existingUser) {
-            return res.status(404).json({ message: 'User with email not found' });
+        const normalizedEmail = email.trim().toLowerCase();
+
+        const existingUser  = await userModel.findOne({ email: normalizedEmail });
+        if (!existingUser ) {
+            return res.status(404).json({ message: 'User  with email not found' });
         }
 
-        existingUser.signal = true;
-        await existingUser.save();
+        existingUser .signal = true;
+        await existingUser .save();
 
         await sendEmail({
-            email: email,
+            email: normalizedEmail,
             subject: 'New Signal Available!',
             html: signalMailTemplate(), 
         });
@@ -853,8 +879,6 @@ const sendSignal = async (req, res) => {
         res.status(500).json({ message: 'Failed to send signal email', error });
     }
 };
-
- 
 
 module.exports={
     signUpUser,
